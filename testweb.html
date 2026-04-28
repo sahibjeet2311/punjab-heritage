@@ -1,0 +1,181 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Punjab Heritage - A project by Sahibjeet Singh celebrating the culture, arts, and history of Punjab.">
+    <title>Punjab Heritage | Sahibjeet Singh</title>
+    
+    <link href="https://fonts.googleapis.com/css2?family=Marcellus&family=Plus+Jakarta+Sans:wght@300;400;600;700&display=swap" rel="stylesheet">
+    
+    <style>
+        :root {
+            --accent: #E67E22;
+            --gold: #C5A059;
+            --bg: #0a0a0a;
+            --surface: #121212;
+            --glass: rgba(255, 255, 255, 0.03);
+            --text: #f0f0f0;
+            --text-dim: #a0a0a0;
+            --transition: all 0.8s cubic-bezier(0.22, 1, 0.36, 1);
+        }
+
+        /* Custom Scrollbar */
+        ::-webkit-scrollbar { width: 8px; }
+        ::-webkit-scrollbar-track { background: var(--bg); }
+        ::-webkit-scrollbar-thumb { background: var(--gold); border-radius: 10px; }
+
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        html { scroll-behavior: smooth; }
+
+        body {
+            background-color: var(--bg);
+            color: var(--text);
+            font-family: 'Plus Jakarta Sans', sans-serif;
+            line-height: 1.6;
+            overflow-x: hidden;
+        }
+
+        /* Reveal Animation */
+        .reveal { opacity: 0; transform: translateY(30px); transition: var(--transition); }
+        .reveal.active { opacity: 1; transform: translateY(0); }
+
+        /* --- Hero --- */
+        header {
+            height: 100vh;
+            background: linear-gradient(rgba(0,0,0,0.7), rgba(0,0,0,0.7)), 
+                        url('https://images.unsplash.com/photo-1514538986981-9df98ec131bb?q=80&w=2000') no-repeat center center/cover;
+            display: flex; flex-direction: column; align-items: center; justify-content: center; text-align: center;
+        }
+
+        .hero-title {
+            font-family: 'Marcellus', serif;
+            font-size: clamp(3.5rem, 15vw, 8rem);
+            color: var(--gold);
+            letter-spacing: 0.2em;
+            text-transform: uppercase;
+            margin-bottom: 20px;
+        }
+
+        .made-by {
+            font-weight: 300; letter-spacing: 4px; color: var(--accent);
+            text-transform: uppercase; font-size: 0.9rem;
+            padding: 12px 30px; border: 1px solid rgba(230, 126, 34, 0.3);
+            border-radius: 100px; background: rgba(0,0,0,0.5); backdrop-filter: blur(10px);
+        }
+
+        /* --- Navigation --- */
+        nav {
+            padding: 20px; background: rgba(10, 10, 10, 0.8);
+            position: sticky; top: 0; z-index: 1000;
+            border-bottom: 1px solid var(--glass); backdrop-filter: blur(15px);
+            display: flex; justify-content: center; gap: 25px; flex-wrap: wrap;
+        }
+
+        nav a {
+            color: var(--text-dim); text-decoration: none; font-weight: 600;
+            text-transform: uppercase; font-size: 0.75rem; letter-spacing: 1px; transition: 0.3s;
+        }
+        nav a:hover { color: var(--gold); }
+
+        /* --- Content Layout --- */
+        .container { max-width: 1200px; margin: 0 auto; padding: 100px 20px; }
+
+        .depth-section { display: flex; align-items: center; gap: 80px; margin-bottom: 180px; }
+        .depth-section.reverse { flex-direction: row-reverse; }
+
+        .img-container {
+            flex: 1; height: 500px; border-radius: 24px; overflow: hidden;
+            box-shadow: 0 40px 80px rgba(0,0,0,0.5); background: #1a1a1a; /* Background if image fails */
+        }
+
+        .img-container img { width: 100%; height: 100%; object-fit: cover; transition: transform 1.5s ease; }
+        .img-container:hover img { transform: scale(1.05); }
+
+        .text-box { flex: 1; }
+        .text-box h2 { font-family: 'Marcellus', serif; font-size: 3rem; color: var(--gold); margin-bottom: 25px; line-height: 1.1; }
+        .text-box p { color: var(--text-dim); font-size: 1.1rem; line-height: 1.8; margin-bottom: 25px; }
+        strong { color: var(--accent); }
+
+        /* --- Footer --- */
+        footer { padding: 100px 20px; text-align: center; background: var(--surface); border-top: 1px solid var(--glass); }
+        .footer-logo { font-family: 'Marcellus', serif; font-size: 2rem; color: var(--gold); margin-bottom: 20px; }
+
+        /* Mobile */
+        @media (max-width: 968px) {
+            .depth-section, .depth-section.reverse { flex-direction: column; text-align: center; gap: 40px; }
+            .img-container { width: 100%; height: 350px; }
+        }
+    </style>
+</head>
+<body>
+
+    <header>
+        <h1 class="hero-title">Punjab</h1>
+        <div class="made-by">Made by Sahibjeet Singh</div>
+    </header>
+
+    <nav>
+        <a href="#spirit">Spirit</a>
+        <a href="#arts">Folk Arts</a>
+        <a href="#cuisine">Cuisine</a>
+    </nav>
+
+    <div class="container">
+        <section id="spirit" class="depth-section reveal">
+            <div class="img-container">
+                <img src="https://images.unsplash.com/photo-1603228254119-e6a4d0ad438d?q=80&w=1200" alt="Golden Temple" class="heritage-img">
+            </div>
+            <div class="text-box">
+                <h2>The Golden Temple</h2>
+                <p>The spiritual heart of Punjab, <strong>Sri Harmandir Sahib</strong> stands as a symbol of brotherhood. Its architecture blends Mughal and Hindu styles, representing the open arms of the <strong>Khalsa</strong> legacy.</p>
+            </div>
+        </section>
+
+        <section id="arts" class="depth-section reverse reveal">
+            <div class="img-container">
+                <img src="https://images.unsplash.com/photo-1599347513365-9856a935414d?q=80&w=1200" alt="Bhangra" class="heritage-img">
+            </div>
+            <div class="text-box">
+                <h2>Vibrant Folk Arts</h2>
+                <p>The energy of the soil is found in <strong>Bhangra</strong>. It is a dance of celebration, born from the fields during harvest, pulsing with the beat of the <strong>Dhol</strong>.</p>
+            </div>
+        </section>
+
+        <section id="cuisine" class="depth-section reveal">
+            <div class="img-container">
+                <img src="https://images.unsplash.com/photo-1626777553732-48995a6a50bb?q=80&w=1200" alt="Punjabi Food" class="heritage-img">
+            </div>
+            <div class="text-box">
+                <h2>Culinary Pride</h2>
+                <p>Built on the tradition of the <strong>Sanjha Chulha</strong>, our food is a global symbol of hospitality. From creamy <strong>Dal Makhani</strong> to the rustic <strong>Sarson da Saag</strong>, every bite is a tribute to our fields.</p>
+            </div>
+        </section>
+    </div>
+
+    <footer>
+        <div class="footer-logo">PUNJAB</div>
+        <p><strong>Sahibjeet Singh</strong> | Heritage Project 2026</p>
+    </footer>
+
+    <script>
+        // Scroll Reveal Logic
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) entry.target.classList.add('active');
+            });
+        }, { threshold: 0.1 });
+
+        document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
+
+        // Image Fail-Safe Logic
+        document.querySelectorAll('.heritage-img').forEach(img => {
+            img.onerror = function() {
+                this.style.display = 'none';
+                this.parentElement.style.background = 'linear-gradient(45deg, #1a1a1a, #C5A05922)';
+                this.parentElement.innerHTML += '<div style="display:flex;align-items:center;justify-content:center;height:100%;color:#C5A059;font-family:Marcellus,serif;font-size:1.5rem">Punjab Heritage</div>';
+            };
+        });
+    </script>
+</body>
+</html>
